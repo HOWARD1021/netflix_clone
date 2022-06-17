@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 interface Props {
     movie:Movie 
+    //movie:Movie |DocumentData
 }
 function Thumbnail({movie}:Props) {
   return (
