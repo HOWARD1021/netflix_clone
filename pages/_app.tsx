@@ -5,9 +5,9 @@ import { AuthProviders } from '../hooks/useAuth'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
-      <AuthProviders>
+      {/* <AuthProviders> */}
         <Component {...pageProps} />
-      </AuthProviders>
+      {/* </AuthProviders> */}
     </RecoilRoot>
   )
 }
