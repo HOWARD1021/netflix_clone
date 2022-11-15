@@ -78,7 +78,7 @@ const Home = (
 export default Home
 
 
-export const getStaticProps  = async() =>{  
+export const getServerSideProps  = async() =>{  
     const products =  await getProducts (payments, {
       includePrices:true,
       activeOnly:true
