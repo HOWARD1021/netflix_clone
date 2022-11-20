@@ -14,6 +14,8 @@ import { useRecoilValue } from 'recoil'
 import { modalState } from '../atoms/modalAtom'
 import { getProducts, Product } from '@stripe/firestore-stripe-payments'
 import payments from '../lib/stripe'
+import Script from 'next/script'
+
 interface Props {
   netflixOriginals: Movie[]
   trendingNow: Movie[]
@@ -53,15 +55,18 @@ const Home = (
         <title>Netflix</title>
         <link rel="icon" href="/favicon.ico" />
         {/* <!-- Google tag (gtag.js) --> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PCVJRW9EWR"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: ` 
-             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-PCVJRW9EWR"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-PCVJRW9EWR');`
-          }} />
+
+          gtag('config', 'GA_MEASUREMENT_ID');
+        `}
+        </Script>
       </Head>
 
       <Header />
